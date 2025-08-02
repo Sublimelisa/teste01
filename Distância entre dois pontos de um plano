@@ -1,0 +1,165 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPBxFcvZBnqeJViuXe/ZOvn",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Sublimelisa/teste01/blob/main/Dist%C3%A2ncia%20entre%20dois%20pontos%20de%20um%20plano\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 11,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "INJFImiWYRux",
+        "outputId": "77e74d7e-af75-4226-abaf-87ebce256f9b"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Trying:\n",
+            "    p = Point(3, 4)\n",
+            "Expecting nothing\n",
+            "ok\n",
+            "Trying:\n",
+            "    p.x\n",
+            "Expecting:\n",
+            "    3\n",
+            "ok\n",
+            "Trying:\n",
+            "    p.y\n",
+            "Expecting:\n",
+            "    4\n",
+            "ok\n",
+            "Trying:\n",
+            "    p1 = Point(3, 0)\n",
+            "Expecting nothing\n",
+            "ok\n",
+            "Trying:\n",
+            "    p2 = Point(0, 4)\n",
+            "Expecting nothing\n",
+            "ok\n",
+            "Trying:\n",
+            "    p1.distance(p2)\n",
+            "Expecting:\n",
+            "    5.0\n",
+            "ok\n",
+            "Trying:\n",
+            "    p2.distance(p1)\n",
+            "Expecting:\n",
+            "    5.0\n",
+            "ok\n",
+            "Trying:\n",
+            "    p1.distance(p1)\n",
+            "Expecting:\n",
+            "    0.0\n",
+            "ok\n",
+            "3 items had no tests:\n",
+            "    __main__.Point\n",
+            "    __main__.Point.__init__\n",
+            "    __main__.Point.distance\n",
+            "1 items passed all tests:\n",
+            "   8 tests in __main__\n",
+            "8 tests in 4 items.\n",
+            "8 passed and 0 failed.\n",
+            "Test passed.\n"
+          ]
+        }
+      ],
+      "source": [
+        "# Calcular a distância entre dois pontos em um plano.\n",
+        "import math\n",
+        "\"\"\"\n",
+        ">>> p = Point(3, 4)\n",
+        ">>> p.x\n",
+        "3\n",
+        ">>> p.y\n",
+        "4\n",
+        "\n",
+        ">>> p1 = Point(3, 0)\n",
+        ">>> p2 = Point(0, 4)\n",
+        ">>> p1.distance(p2)\n",
+        "5.0\n",
+        ">>> p2.distance(p1)\n",
+        "5.0\n",
+        ">>> p1.distance(p1)\n",
+        "0.0\n",
+        "\"\"\"\n",
+        "class Point:\n",
+        "    def __init__ (self, x, y):\n",
+        "      self.x = x\n",
+        "      self.y = y\n",
+        "    def distance(self, other):\n",
+        "      return math.sqrt((self.x - other.x)**2 + (self.y - other.y)**2 )\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "  import doctest\n",
+        "  doctest.testmod(verbose=True)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x1, y1 = [float (a) for a in input().split()]\n",
+        "x2, y2 = [float (a) for a in input().split()]\n",
+        "\n",
+        "p1 = Point(x1, y1)\n",
+        "p2 = Point(x2, y2)\n",
+        "d = p1.distance(p2)\n",
+        "\n",
+        "\"\"\"\n",
+        " Quando eu uso p1, eu uso os valores de x1 e y1\n",
+        " e calculo a distância em relação aos de x2 e y2\n",
+        " que foram armazenados em p2. Assim eu tenho os quatro números que preciso.\n",
+        "\"\"\"\n",
+        "\n",
+        "print(f\"{d:.4f}\")\n",
+        "\n",
+        "\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "vkZm0j9aY5R0",
+        "outputId": "baf1e9f4-5680-448c-8829-27b20e50bf58"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1.0 7.0\n",
+            "5.0 9.0\n",
+            "4.4721\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
